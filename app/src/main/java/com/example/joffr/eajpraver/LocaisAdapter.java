@@ -39,7 +39,7 @@ public class LocaisAdapter extends RecyclerView.Adapter {
         SetorViewHolder setorViewHolder = (SetorViewHolder) holder;
         Setor setorselecionado = setores.get(position);
         setorViewHolder.nome.setText(setorselecionado.getNome());
-        //setorViewHolder.img.setImageResource();
+        setorViewHolder.img.setImageResource(setorselecionado.getFoto());
     }
 
     @Override

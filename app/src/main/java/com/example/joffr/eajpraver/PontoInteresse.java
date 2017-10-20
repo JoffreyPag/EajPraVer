@@ -42,10 +42,28 @@ public class PontoInteresse extends Fragment{
         Setor s1 = new Setor();
         s1.setNome("Informatica");
         s1.setId(1);
+        s1.setFoto(R.drawable.informatica);
         listaSetor.add(s1);
         Setor s2 = new Setor();
         s2.setNome("Ensino Medio");
         s2.setId(2);
+        s2.setFoto(R.drawable.medio);
         listaSetor.add(s2);
+        Setor s3 = new Setor();
+        s3.setNome("CVT");
+        s3.setId(3);
+        s3.setFoto(R.drawable.cvt);
+        listaSetor.add(s3);
+        Setor s4 = new Setor();
+        s4.setNome("Biblioteca");
+        s4.setId(4);
+        s4.setFoto(R.drawable.biblioteca);
+        listaSetor.add(s4);
+        Setor s5 = new Setor();
+        s5.setNome("Aquicultuta");
+        s5.setId(5);
+        s5.setFoto(R.drawable.aquicultura);
+        listaSetor.add(s5);
+
     }
 }
