@@ -51,17 +51,18 @@ public class PontoInteresse extends Fragment {
             public void onItemClick(View view, int position) {
                 //TODO: provavelmente um bundle pra passar de um fragment para outro
 
-                Log.i("click", "clicou");
+                //Log.i("click", "clicou: "+position);
 
-                //dando erro
-                TabLayout tabLayout = view.findViewById(R.id.tab);
-                tabLayout.getTabAt(2).select();
+                TabLayout tabLayout = getActivity().findViewById(R.id.tab);
+                //ACHEI NO STACKOVERFLOW
+                //https://stackoverflow.com/questions/32306136/switch-tabs-from-fragment
+                tabLayout.getTabAt(1).select();
+
             }
 
             @Override
             public void onItemLongClick(View view, int position) {
-                Snackbar snak = Snackbar.make((View) view.getParent(), "Tente só clicar ta?", Snackbar.LENGTH_SHORT);
-                snak.show();
+                Snackbar.make((View)view.getParent(), "Tente so clicar", Snackbar.LENGTH_SHORT).show();
             }
         }));
 
