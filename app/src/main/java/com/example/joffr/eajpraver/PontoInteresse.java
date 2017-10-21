@@ -1,12 +1,15 @@
 package com.example.joffr.eajpraver;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,9 +30,10 @@ public class PontoInteresse extends Fragment {
 
     private List<Setor> listaSetor;
 
+
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ponto_interesse, container, false);
         //logica do fragment
 
@@ -49,9 +53,7 @@ public class PontoInteresse extends Fragment {
 
             @Override
             public void onItemClick(View view, int position) {
-                //TODO: provavelmente um bundle pra passar de um fragment para outro
-
-                //Log.i("click", "clicou: "+position);
+                //Log.i("click", "clicou: "+listaSetor.get(position).getNome());
 
                 TabLayout tabLayout = getActivity().findViewById(R.id.tab);
                 //ACHEI NO STACKOVERFLOW
@@ -97,4 +99,5 @@ public class PontoInteresse extends Fragment {
         listaSetor.add(s5);
 
     }
+
 }
