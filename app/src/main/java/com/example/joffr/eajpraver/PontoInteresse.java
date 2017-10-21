@@ -1,14 +1,20 @@
 package com.example.joffr.eajpraver;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,23 +23,47 @@ import java.util.List;
  * Created by joffr on 18/10/2017.
  */
 
-public class PontoInteresse extends Fragment{
+public class PontoInteresse extends Fragment {
 
-    private List<Setor> listaSetor = new ArrayList<>();
+    private List<Setor> listaSetor;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ponto_interesse, container, false);
         //logica do fragment
 
-        final RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.RecViewPontos);
+        listaSetor = new ArrayList<>();
+
+        final RecyclerView recyclerView = view.findViewById(R.id.RecViewPontos);
+
         CarregaSetores();
 
         LocaisAdapter locaisAdapter = new LocaisAdapter(getContext(), listaSetor);
         recyclerView.setAdapter(locaisAdapter);
+
         RecyclerView.LayoutManager layout = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layout);
+
+        recyclerView.addOnItemTouchListener(new RecyclePontoInteresseClickListener(getContext(), recyclerView, new RecyclePontoInteresseClickListener.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(View view, int position) {
+                //TODO: provavelmente um bundle pra passar de um fragment para outro
+
+                Log.i("click", "clicou");
+
+                //dando erro
+                TabLayout tabLayout = view.findViewById(R.id.tab);
+                tabLayout.getTabAt(2).select();
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                Snackbar snak = Snackbar.make((View) view.getParent(), "Tente só clicar ta?", Snackbar.LENGTH_SHORT);
+                snak.show();
+            }
+        }));
 
         return view;
     }

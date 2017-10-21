@@ -15,15 +15,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tabLayout = (TabLayout)findViewById(R.id.tab);
+
         ViewPager vp = (ViewPager) findViewById(R.id.pager);
         PagerAdapter pa = new FixedTabsAdapter(getSupportFragmentManager());
 
         vp.setAdapter(pa);
 
-        tabLayout = (TabLayout)findViewById(R.id.tab);
+
         tabLayout.setupWithViewPager(vp);
 
-        //TODO: ONDE SERÁ O RECYCLER VIEW?
         //TODO: TRATAR EVENTOS UTEIS UM DIA
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

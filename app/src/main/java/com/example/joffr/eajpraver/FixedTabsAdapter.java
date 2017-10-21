@@ -10,21 +10,22 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class FixedTabsAdapter extends FragmentPagerAdapter {
 
-    public FixedTabsAdapter(FragmentManager fm){
+    public FixedTabsAdapter(FragmentManager fm) {
         super(fm);
     }
+
     @Override
     public Fragment getItem(int position) {
 //        chama os fragments aba
-          switch (position){
+        switch (position) {
             case 0:
                 return new PontoInteresse();
             case 1:
                 return new InformacaoPonto();
             case 2:
-                  return new Mapa();
-              default:
-                  return null;
+                return new Mapa();
+            default:
+                return null;
         }
     }
 
@@ -33,8 +34,8 @@ public class FixedTabsAdapter extends FragmentPagerAdapter {
         return 3;
     }
 
-    public CharSequence getPageTitle(int position){
-        switch (position){
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
             case 0:
                 return "Ponto de interesse";
             case 1:
