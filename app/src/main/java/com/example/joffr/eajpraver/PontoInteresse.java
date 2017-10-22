@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -55,7 +57,27 @@ public class PontoInteresse extends Fragment {
             public void onItemClick(View view, int position) {
                 //Log.i("click", "clicou: "+listaSetor.get(position).getNome());
 
+                TextView nome, desc, lati, longi;
+                Button button;
+
                 TabLayout tabLayout = getActivity().findViewById(R.id.tab);
+                nome = getActivity().findViewById(R.id.nome);
+                desc = getActivity().findViewById(R.id.desc);
+                lati = getActivity().findViewById(R.id.lati);
+                longi = getActivity().findViewById(R.id.logi);
+                button = getActivity().findViewById(R.id.butao);
+
+                nome.setText(listaSetor.get(position).getNome());
+                desc.setText(listaSetor.get(position).getDescricao());
+                lati.setText("Latidude: "+listaSetor.get(position).getLatitude());
+                longi.setText("Longitude: "+listaSetor.get(position).getLongitude());
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar.make((View)view.getParent(), "Ainda vai implementar", Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+                button.setVisibility(View.VISIBLE);
                 //ACHEI NO STACKOVERFLOW
                 //https://stackoverflow.com/questions/32306136/switch-tabs-from-fragment
                 tabLayout.getTabAt(1).select();
@@ -64,7 +86,7 @@ public class PontoInteresse extends Fragment {
 
             @Override
             public void onItemLongClick(View view, int position) {
-                Snackbar.make((View)view.getParent(), "Tente so clicar", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make((View) view.getParent(), "Tente so clicar", Snackbar.LENGTH_SHORT).show();
             }
         }));
 
@@ -72,30 +94,15 @@ public class PontoInteresse extends Fragment {
     }
 
     private void CarregaSetores() {
-        Setor s1 = new Setor();
-        s1.setNome("Informatica");
-        s1.setId(1);
-        s1.setFoto(R.drawable.informatica);
+        Setor s1 = new Setor(1, R.drawable.informatica, 0, 0, "Informatica", "Setor de tecnologia plicada a ciencias agrarias");
         listaSetor.add(s1);
-        Setor s2 = new Setor();
-        s2.setNome("Ensino Medio");
-        s2.setId(2);
-        s2.setFoto(R.drawable.medio);
+        Setor s2 = new Setor(2, R.drawable.medio, 0, 0, "Ensino Médio", "Setor de Ensino Médio");
         listaSetor.add(s2);
-        Setor s3 = new Setor();
-        s3.setNome("CVT");
-        s3.setId(3);
-        s3.setFoto(R.drawable.cvt);
+        Setor s3 = new Setor(3, R.drawable.cvt, 0, 0, "CVT", "Centro Vocacional Tecnologico");
         listaSetor.add(s3);
-        Setor s4 = new Setor();
-        s4.setNome("Biblioteca");
-        s4.setId(4);
-        s4.setFoto(R.drawable.biblioteca);
+        Setor s4 = new Setor(4, R.drawable.biblioteca, 0, 0, "Biblioteca", "Biclioteca da ufrn para os alunos alocados da EAJ");
         listaSetor.add(s4);
-        Setor s5 = new Setor();
-        s5.setNome("Aquicultuta");
-        s5.setId(5);
-        s5.setFoto(R.drawable.aquicultura);
+        Setor s5 = new Setor(5, R.drawable.aquicultura, 0, 0, "Aquicultura", "Setor de Aquicultura");
         listaSetor.add(s5);
 
     }
