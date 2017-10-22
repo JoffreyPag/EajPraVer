@@ -22,6 +22,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +67,7 @@ public class PontoInteresse extends Fragment {
                 Button button;
                 ImageView imageView;
 
-                TabLayout tabLayout = getActivity().findViewById(R.id.tab);
+                final TabLayout tabLayout = getActivity().findViewById(R.id.tab);
                 nome = getActivity().findViewById(R.id.nome);
                 desc = getActivity().findViewById(R.id.desc);
                 lati = getActivity().findViewById(R.id.lati);
@@ -79,7 +84,10 @@ public class PontoInteresse extends Fragment {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Snackbar.make((View)view.getParent(), "Ainda vai implementar", Snackbar.LENGTH_SHORT).show();
+                        //TODO: ALGUMA COISA PRA MANIPULAR O MAPA DA TERCEIRA FRAGMENT
+
+
+                        tabLayout.getTabAt(2).select();
                     }
                 });
                 button.setVisibility(View.VISIBLE);
