@@ -56,6 +56,8 @@
             android:id="@+id/im"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_dialog_alert"
+            android:background="@android:color/holo_orange_dark"
             android:layout_gravity="center" />
 
         <Button

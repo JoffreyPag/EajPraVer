@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,18 +60,22 @@ public class PontoInteresse extends Fragment {
 
                 TextView nome, desc, lati, longi;
                 Button button;
+                ImageView imageView;
 
                 TabLayout tabLayout = getActivity().findViewById(R.id.tab);
                 nome = getActivity().findViewById(R.id.nome);
                 desc = getActivity().findViewById(R.id.desc);
                 lati = getActivity().findViewById(R.id.lati);
                 longi = getActivity().findViewById(R.id.logi);
+                imageView = getView().findViewById(R.id.im);
                 button = getActivity().findViewById(R.id.butao);
 
                 nome.setText(listaSetor.get(position).getNome());
                 desc.setText(listaSetor.get(position).getDescricao());
                 lati.setText("Latidude: "+listaSetor.get(position).getLatitude());
                 longi.setText("Longitude: "+listaSetor.get(position).getLongitude());
+                //imageView.setImageResource(R.drawable.cvt);
+//                imageView.setImageResource(listaSetor.get(position).getFoto());
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
