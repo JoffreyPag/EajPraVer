@@ -22,8 +22,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -60,7 +62,7 @@ public class PontoInteresse extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclePontoInteresseClickListener(getContext(), recyclerView, new RecyclePontoInteresseClickListener.OnItemClickListener() {
 
             @Override
-            public void onItemClick(View view, int position) {
+            public void onItemClick(View view, final int position) {
                 //Log.i("click", "clicou: "+listaSetor.get(position).getNome());
 
                 TextView nome, desc, lati, longi;
@@ -72,20 +74,27 @@ public class PontoInteresse extends Fragment {
                 desc = getActivity().findViewById(R.id.desc);
                 lati = getActivity().findViewById(R.id.lati);
                 longi = getActivity().findViewById(R.id.logi);
-                imageView = getView().findViewById(R.id.im);
+                imageView = getActivity().findViewById(R.id.im);
                 button = getActivity().findViewById(R.id.butao);
 
                 nome.setText(listaSetor.get(position).getNome());
                 desc.setText(listaSetor.get(position).getDescricao());
-                lati.setText("Latidude: "+listaSetor.get(position).getLatitude());
-                longi.setText("Longitude: "+listaSetor.get(position).getLongitude());
-                //imageView.setImageResource(R.drawable.cvt);
-//                imageView.setImageResource(listaSetor.get(position).getFoto());
+                lati.setText("Latidude: " + listaSetor.get(position).getLatitude());
+                longi.setText("Longitude: " + listaSetor.get(position).getLongitude());
+                imageView.setImageResource(listaSetor.get(position).getFoto());
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //TODO: ALGUMA COISA PRA MANIPULAR O MAPA DA TERCEIRA FRAGMENT
+                        MainActivity.mGoogleMap.addMarker(new MarkerOptions().position(
+                                new LatLng(listaSetor.get(position).getLatitude(), listaSetor.get(position).getLongitude()))
+                                .title(listaSetor.get(position).getNome()));
 
+                        CameraPosition liberty = CameraPosition.builder().target(
+                                new LatLng(listaSetor.get(position).getLatitude(), listaSetor.get(position).getLongitude()))
+                                .zoom(16).bearing(0).build();
+
+                        MainActivity.mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(liberty));
 
                         tabLayout.getTabAt(2).select();
                     }
@@ -107,15 +116,15 @@ public class PontoInteresse extends Fragment {
     }
 
     private void CarregaSetores() {
-        Setor s1 = new Setor(1, R.drawable.informatica, 0, 0, "Informatica", "Setor de tecnologia plicada a ciencias agrarias");
+        Setor s1 = new Setor(1, R.drawable.informatica, -5.885786, -35.365748, "Informatica", "Setor de tecnologia plicada a ciencias agrarias");
         listaSetor.add(s1);
-        Setor s2 = new Setor(2, R.drawable.medio, 0, 0, "Ensino Médio", "Setor de Ensino Médio");
+        Setor s2 = new Setor(2, R.drawable.medio, -5.885205, -35.364782, "Ensino Médio", "Setor de Ensino Médio");
         listaSetor.add(s2);
-        Setor s3 = new Setor(3, R.drawable.cvt, 0, 0, "CVT", "Centro Vocacional Tecnologico");
+        Setor s3 = new Setor(3, R.drawable.cvt, -5.884567, -35.364924, "CVT", "Centro Vocacional Tecnologico");
         listaSetor.add(s3);
-        Setor s4 = new Setor(4, R.drawable.biblioteca, 0, 0, "Biblioteca", "Biclioteca da ufrn para os alunos alocados da EAJ");
+        Setor s4 = new Setor(4, R.drawable.biblioteca, -5.885911, -35.366131, "Biblioteca", "Biclioteca da ufrn para os alunos alocados da EAJ");
         listaSetor.add(s4);
-        Setor s5 = new Setor(5, R.drawable.aquicultura, 0, 0, "Aquicultura", "Setor de Aquicultura");
+        Setor s5 = new Setor(5, R.drawable.aquicultura, -5.887602, -35.361685, "Aquicultura", "Setor de Aquicultura");
         listaSetor.add(s5);
 
     }

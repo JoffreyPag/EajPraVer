@@ -10,18 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class Mapa extends Fragment implements OnMapReadyCallback{
 
-    GoogleMap mGoogleMap;
+    //GoogleMap mGoogleMap;
     MapView mMapView;
     View view;
 
@@ -50,11 +52,13 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
     public void onMapReady(GoogleMap googleMap) {
         MapsInitializer.initialize(getContext());
 
-        mGoogleMap = googleMap;
-        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        MainActivity.mGoogleMap = googleMap;
+        MainActivity.mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(-5.885786, -35.365748)).title(
-                "Informatica"));
+        MainActivity.mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(-5.8857457,-35.3664876)).title(
+                "EAJ"));
+        CameraPosition escola = CameraPosition.builder().target(new LatLng(-5.8857457,-35.3664876)).zoom(16).bearing(0).build();
+        MainActivity.mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(escola));
 
     }
 }

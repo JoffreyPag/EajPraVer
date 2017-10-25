@@ -7,9 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.android.gms.maps.GoogleMap;
+
 public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
+    public static GoogleMap mGoogleMap;
 
     String text;
     @Override

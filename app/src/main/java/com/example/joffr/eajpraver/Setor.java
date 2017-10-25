@@ -9,7 +9,7 @@ public class Setor {
     private double longitude, latitude;
     private String nome, descricao;
 
-    public Setor(int id, int foto, double longitude, double latitude, String nome, String descricao) {
+    public Setor(int id, int foto, double latitude, double longitude, String nome, String descricao) {
         this.id = id;
         this.foto = foto;
         this.longitude = longitude;
