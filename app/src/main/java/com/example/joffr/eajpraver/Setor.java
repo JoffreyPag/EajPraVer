@@ -7,15 +7,20 @@ package com.example.joffr.eajpraver;
 public class Setor {
     private int id, foto;
     private double longitude, latitude;
-    private String nome, descricao;
+    private String nome, descricao, responsavel, email, telefone, horario;
 
-    public Setor(int id, int foto, double latitude, double longitude, String nome, String descricao) {
+    public Setor(int id, int foto, double latitude, double longitude, String nome, String descricao,
+            String responsavel, String email, String telefone, String horario) {
         this.id = id;
         this.foto = foto;
         this.longitude = longitude;
         this.latitude = latitude;
         this.nome = nome;
         this.descricao = descricao;
+        this.responsavel = responsavel;
+        this.email = email;
+        this.telefone = telefone;
+        this.horario = horario;
     }
 
     public Setor() {
@@ -67,5 +72,37 @@ public class Setor {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 }

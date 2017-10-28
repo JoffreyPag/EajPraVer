@@ -42,10 +42,10 @@
             android:layout_height="1dp"
             android:background="@android:color/holo_orange_dark" />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/imagem"
             android:layout_width="match_parent"
-            android:layout_height="240dp" />
+            android:layout_height="240dp" />-->
 
     </LinearLayout>
 

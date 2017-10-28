@@ -55,10 +55,10 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
         MainActivity.mGoogleMap = googleMap;
         MainActivity.mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        MainActivity.mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(-5.8857457,-35.3664876)).title(
-                "EAJ"));
-        CameraPosition escola = CameraPosition.builder().target(new LatLng(-5.8857457,-35.3664876)).zoom(16).bearing(0).build();
-        MainActivity.mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(escola));
+//        MainActivity.mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(-5.8857457,-35.3664876)).title(
+//                "EAJ"));
+//        CameraPosition escola = CameraPosition.builder().target(new LatLng(-5.8857457,-35.3664876)).zoom(16).bearing(0).build();
+//        MainActivity.mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(escola));
 
     }
 }

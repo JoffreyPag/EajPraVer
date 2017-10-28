@@ -9,11 +9,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <TextView
             android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment"
+            android:text="Nenhum ponto foi selecionado!"
             android:textAlignment="center" />
 
         <ImageView
@@ -25,13 +26,37 @@
             android:id="@+id/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descricao"
+            android:text=""
             android:textAlignment="center" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/holo_orange_dark" />
+
+        <TextView
+            android:id="@+id/responsable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/horario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,9 +81,9 @@
             android:id="@+id/im"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@android:drawable/ic_dialog_alert"
+            android:layout_gravity="center"
             android:background="@android:color/holo_orange_dark"
-            android:layout_gravity="center" />
+            android:src="@android:drawable/ic_dialog_alert" />
 
         <Button
             android:id="@+id/butao"
@@ -66,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Ver Localização"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
     </LinearLayout>
 

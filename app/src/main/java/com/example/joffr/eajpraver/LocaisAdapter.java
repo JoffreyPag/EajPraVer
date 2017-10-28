@@ -39,7 +39,7 @@ public class LocaisAdapter extends RecyclerView.Adapter {
         SetorViewHolder setorViewHolder = (SetorViewHolder) holder;
         Setor setorselecionado = setores.get(position);
         setorViewHolder.nome.setText(setorselecionado.getNome());
-        setorViewHolder.img.setImageResource(setorselecionado.getFoto());
+        //setorViewHolder.img.setImageResource(setorselecionado.getFoto());
     }
 
     @Override
@@ -50,12 +50,12 @@ public class LocaisAdapter extends RecyclerView.Adapter {
     public class SetorViewHolder extends RecyclerView.ViewHolder{
 
         final TextView nome;
-        final ImageView img;
+        //final ImageView img;
 
         public SetorViewHolder(View v) {
             super(v);
             nome = v.findViewById(R.id.nomeLocal);
-            img = v.findViewById(R.id.imagem);
+            //img = v.findViewById(R.id.imagem);
         }
     }
 }
