@@ -12,21 +12,22 @@ import com.google.android.gms.maps.GoogleMap;
 public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
+    ViewPager vp;
     public static GoogleMap mGoogleMap;
 
     String text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tabLayout = (TabLayout)findViewById(R.id.tab);
+        tabLayout = (TabLayout) findViewById(R.id.tab);
 
-        ViewPager vp = (ViewPager) findViewById(R.id.pager);
+        vp = (ViewPager) findViewById(R.id.pager);
         PagerAdapter pa = new FixedTabsAdapter(getSupportFragmentManager());
 
         vp.setAdapter(pa);
-
 
         tabLayout.setupWithViewPager(vp);
 
@@ -47,5 +48,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        int aba = vp.getCurrentItem();
+        if (aba == 0) {
+            super.onBackPressed();
+        } else {
+            tabLayout.getTabAt(aba - 1).select();
+        }
     }
 }
